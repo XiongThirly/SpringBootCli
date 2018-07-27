@@ -1,2 +1,2 @@
 # SpringBootCli
-SpringBoot整合
+SpringBoot + jpa + shrio + jwt
