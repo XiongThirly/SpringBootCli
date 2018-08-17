@@ -29,7 +29,7 @@ public  class RedisUtil {
 
     @Resource
     public  void setRedisTemplate(RedisTemplate<String, Object> redisTemplate) {
-        this.redisTemplate = redisTemplate;
+        RedisUtil.redisTemplate = redisTemplate;
     }
 
     /**
