@@ -70,7 +70,7 @@ public class RedisLock {
     {
         int lockWaitMillSeconds = this.lockWaitTimeOut;
 
-        String redis_value = String.valueOf(System.currentTimeMillis()+this.lockExpriseTimeout);
+        String redis_value = String.valueOf(System.currentTimeMillis() + this.lockExpriseTimeout);
 
         while(lockWaitMillSeconds > 0)
         {
