@@ -1,6 +1,8 @@
 package com.demo.test;
 
+import com.demo.model.UserBean;
 import com.demo.util.RedisUtil;
+import org.apache.catalina.mbeans.UserMBean;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,15 +18,18 @@ public class RedisApplicationTests {
     @Autowired
     private RedisTemplate<Object, Object> template;
 
-/*    @Test
+   @Test
     public void contextLoads() {
-        ContractVO c = new ContractVO();
-        c.setContractText("255225");
 
-      RedisUtil.set("8",c);
+       UserBean u = new UserBean();
+       u.setUsername("1");
+      RedisUtil.set("8",u);
 
         System.out.println(RedisUtil.get("8"));
-    }*/
+    }
+
+
+
 
 
 

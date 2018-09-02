@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
+import java.net.SocketException;
+
 @ControllerAdvice
 public class ExceptionHandle {
 
@@ -28,6 +30,15 @@ public class ExceptionHandle {
 
         LOGGER.error("【系统异常】{}",e);
         return ResponseData.error(ExceptionEnum.UNKNOW_ERROR);
+    }
+
+    @ExceptionHandler(value = SocketException.class)
+    @ResponseBody
+    public ResponseData exceptionSocket(SocketException e){
+
+
+            return ResponseData.error(111,e.getMessage());
+
     }
 
     @ResponseStatus(HttpStatus.UNAUTHORIZED)

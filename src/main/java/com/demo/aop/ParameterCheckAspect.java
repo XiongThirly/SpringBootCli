@@ -13,7 +13,11 @@ public class ParameterCheckAspect {
     @Autowired
     private ParameterCheckOption parameterCheckOption;
 
-    // 定义切点
+
+    /**
+     * 定义切点
+     */
+
     @Pointcut("within(com.demo.controller..*)")
     public void check() {
     }

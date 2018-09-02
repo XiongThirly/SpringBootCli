@@ -17,6 +17,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
+import java.net.URLEncoder;
+
 @RestController
 public class WebController {
 
@@ -31,8 +35,10 @@ public class WebController {
     }
 
     @PostMapping("/login")
-    public ResponseData login(@RequestBody UserBean user) {
+    public ResponseData login(@RequestBody UserBean user) throws UnsupportedEncodingException {
         UserBean userBean = userService.getUser(user);
+        URLDecoder.decode("","utf-8");
+
         if (userBean != null) {
             return new ResponseData(200,  JWTUtil.sign(user.getUsername(), user.getPassword()),"Login success");
         } else {

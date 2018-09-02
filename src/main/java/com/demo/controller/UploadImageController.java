@@ -10,7 +10,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
+
+import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
+import java.net.SocketException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -24,8 +27,9 @@ public class UploadImageController {
     private FdfsWebServer fdfsWebServer;
 
     @PostMapping("/article/img/fdfs")
-    public Map<String,String> uploadImgfdfs(@RequestParam(value = "file") MultipartFile multipartFile) throws IOException {
-        Map<String,String> map = new HashMap<>();
+    public Map<String,String> uploadImgfdfs(@RequestParam(value = "file") MultipartFile multipartFile, HttpServletRequest request) throws IOException,SocketException {
+        String g = request.getHeader("1");
+        Map<String,String> map = new HashMap<>(1);
         //图片服务器地址
         String baseUrl = "http://139.199.164.21/";
         String fileName = multipartFile.getOriginalFilename();

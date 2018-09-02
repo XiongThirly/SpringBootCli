@@ -29,7 +29,7 @@ public  class RedisUtil {
 
     @Resource
     public  void setRedisTemplate(RedisTemplate<String, Object> redisTemplate) {
-        this.redisTemplate = redisTemplate;
+        RedisUtil.redisTemplate = redisTemplate;
     }
 
     /**
@@ -40,7 +40,7 @@ public  class RedisUtil {
      */
     public static boolean expire(String key,long time){
         try {
-            if(time>0){
+            if(time > 0){
                 redisTemplate.expire(key, time, TimeUnit.SECONDS);
             }
             return true;
@@ -79,8 +79,8 @@ public  class RedisUtil {
      */
     @SuppressWarnings("unchecked")
     public static void del(String ... key){
-        if(key!=null&&key.length>0){
-            if(key.length==1){
+        if(key != null && key.length > 0){
+            if(key.length == 1){
                 redisTemplate.delete(key[0]);
             }else{
                 redisTemplate.delete(CollectionUtils.arrayToList(key));
@@ -124,7 +124,7 @@ public  class RedisUtil {
      */
     public static boolean set(String key,Object value,long time){
         try {
-            if(time>0){
+            if(time > 0){
                 redisTemplate.opsForValue().set(key, value, time, TimeUnit.SECONDS);
             }else{
                 set(key, value);
@@ -143,7 +143,7 @@ public  class RedisUtil {
      * @return
      */
     public static long incr(String key, long delta){
-        if(delta<0){
+        if(delta < 0){
             throw new RuntimeException("递增因子必须大于0");
         }
         return redisTemplate.opsForValue().increment(key, delta);
