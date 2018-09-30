@@ -6,18 +6,9 @@ import org.apache.commons.net.ftp.FTPReply;
 import java.io.File;
 import java.io.FileInputStream;
 
-public class FTPUntil {
+public class FTPUtil {
     private FTPClient ftp;
-    /**
-     *
-     * @param path 上传到ftp服务器哪个路径下
-     * @param addr 地址
-     * @param port 端口号
-     * @param username 用户名
-     * @param password 密码
-     * @return
-     * @throws Exception
-     */
+
     private  boolean connect(String path,String addr,int port,String username,String password) throws Exception {
         boolean result = false;
         ftp = new FTPClient();
@@ -34,11 +25,7 @@ public class FTPUntil {
         result = true;
         return result;
     }
-    /**
-     *
-     * @param file 上传的文件或文件夹
-     * @throws Exception
-     */
+
     private void upload(File file) throws Exception{
         if(file.isDirectory()){
             ftp.makeDirectory(file.getName());
@@ -62,6 +49,21 @@ public class FTPUntil {
             ftp.storeFile(file2.getName(), input);
             input.close();
         }
+    }
+
+    public static void main(String[] args) throws Exception{
+        FTPUtil t = new FTPUtil();
+        boolean abc = t.connect("/tmp","139.199.164.21", 21, "ftp_test", "xt940904");
+        System.out.println("是否连接上ftp服务器：" + abc);
+        File file = new File("F://ftp//567.txt");
+        if(file.exists()){
+            t.upload(file);
+         //   file.delete();
+          //  System.out.println("上传的文件已经被删除！");
+        }else{
+            System.out.println("不存在上传的文件！请等待！");
+        }
+        System.out.println("上传流程结束");
     }
 
 }
