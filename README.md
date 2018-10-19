@@ -1,2 +1,2 @@
 # SpringBootCli
-SpringBoot + jpa + shrio + jwt
+SpringBoot + jpa + shrio + jwt + quartz
