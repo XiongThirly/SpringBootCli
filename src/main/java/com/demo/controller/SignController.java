@@ -9,6 +9,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Map;
 
+/**
+ * @Descrption: 动态获取加密数据签名
+ * @author: THIRLY
+ * @date: 2018/10/19 16:39
+ */
 @RestController
 @RequestMapping("sign")
 public class SignController {

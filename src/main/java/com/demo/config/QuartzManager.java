@@ -15,7 +15,7 @@ import org.springframework.stereotype.Component;
 import java.util.Map;
 
 /**
- * @Description: 定时任务
+ * @Description: 定时任务管理
  * @Author: THIRLY
  * @Date: 2018/10/19 15:48
  */

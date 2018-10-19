@@ -1,6 +1,13 @@
 package com.demo.config;
-
+/**
+ * @Descrption: TODO
+ * @author: THIRLY
+ * @date: 2018/10/19 16:37
+ */
 public enum ExceptionEnum {
+    /**
+     *
+     */
     UNKNOW_ERROR(-1,"未知错误"),
     ;
 

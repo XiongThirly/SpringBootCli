@@ -19,6 +19,11 @@ import java.net.SocketException;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * @Descrption: fdfs上传图片
+ * @author: THIRLY
+ * @date: 2018/10/19 16:40
+ */
 @RestController
 public class UploadImageController {
 

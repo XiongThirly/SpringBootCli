@@ -21,6 +21,11 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
 
+/**
+ * @Descrption: shiro权限控制
+ * @author: THIRLY
+ * @date: 2018/10/19 16:41
+ */
 @RestController
 public class WebController {
 

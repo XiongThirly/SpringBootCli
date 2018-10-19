@@ -53,7 +53,7 @@ public class FTPUtil {
 
     public static void main(String[] args) throws Exception{
         FTPUtil t = new FTPUtil();
-        boolean abc = t.connect("/tmp","139.199.164.21", 21, "ftp_test", "xt940904");
+        boolean abc = t.connect("/tmp","***.***.***.**", 21, "***", "****");
         System.out.println("是否连接上ftp服务器：" + abc);
         File file = new File("F://ftp//567.txt");
         if(file.exists()){

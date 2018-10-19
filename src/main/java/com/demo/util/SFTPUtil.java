@@ -138,7 +138,7 @@ public class SFTPUtil {
     }
     
     public static void main(String[] args) throws SftpException, IOException {
-        SFTPUtil sftp = new SFTPUtil("root", "xt940904", "139.199.164.21", 22);
+        SFTPUtil sftp = new SFTPUtil("****", "******", "139.***.***.**", 22);
         sftp.login();
         File file = new File("F:\\ftp\\567.txt");
         InputStream is = new FileInputStream(file);
