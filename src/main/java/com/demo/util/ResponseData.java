@@ -4,25 +4,24 @@ import com.demo.config.ExceptionEnum;
 import org.springframework.stereotype.Component;
 
 
-public class ResponseData<T> {
+public class ResponseData {
 
-    private Integer code;
-    private T data;
-    private String Msg;
+    private Integer code = 200;
+    private Object data = null;
+    private String Msg = "success";
 
     public ResponseData() {
 
     }
 
-    public ResponseData(Integer code,T data,String Msg) {
+    public ResponseData(Integer code,Object data,String Msg) {
             this.code = code;
             this.data = data;
             this.Msg = Msg;
     }
 
-    public ResponseData(Integer code,T data) {
-        this.code = code;
-        this.data = data;
+    public static ResponseData cd(Integer code,Object data) {
+        return new ResponseData(code,data,"");
     }
 
     public ResponseData(Integer code,String Msg) {
@@ -38,11 +37,11 @@ public class ResponseData<T> {
         this.code = code;
     }
 
-    public T getData() {
+    public Object getData() {
         return data;
     }
 
-    public void setData(T data) {
+    public void setData(Object data) {
         this.data = data;
     }
 
