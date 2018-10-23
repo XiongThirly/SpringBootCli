@@ -13,7 +13,8 @@ public class Test {
         list.add(5);
         list.add("5");
 
-        System.out.println(list.toArray());
+
+        System.out.println(new Date());
 
     }
 }
