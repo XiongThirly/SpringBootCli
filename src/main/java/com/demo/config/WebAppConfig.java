@@ -7,6 +7,11 @@ import org.springframework.jmx.support.RegistrationPolicy;
 
 import javax.servlet.MultipartConfigElement;
 
+/**
+ * @Descrption: fdfs配置
+ * @author: THIRLY
+ * @date: 2018/10/19 16:38
+ */
 @Configuration
 @ComponentScan(value = "com.github.tobato.fastdfs.service")
 @Import(FdfsClientConfig.class)

@@ -2,9 +2,11 @@ package com.demo.controller;
 
 
 
+import com.demo.util.ResponseData;
 import com.github.tobato.fastdfs.conn.FdfsWebServer;
 import com.github.tobato.fastdfs.domain.StorePath;
 import com.github.tobato.fastdfs.service.FastFileStorageClient;
+import com.github.tobato.fastdfs.service.TrackerClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -17,6 +19,11 @@ import java.net.SocketException;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * @Descrption: fdfs上传图片
+ * @author: THIRLY
+ * @date: 2018/10/19 16:40
+ */
 @RestController
 public class UploadImageController {
 
@@ -43,38 +50,6 @@ public class UploadImageController {
     }
 
 
-    /*  将图片上传至本地
-        public Map<String,String>  uploadImg(@RequestParam("file") MultipartFile multipartFile)  {
-        Map<String,String> map = new HashMap<>();
-        String location = "F:/img/";
-        if (multipartFile.isEmpty() || StringUtils.isBlank(multipartFile.getOriginalFilename())) {
 
-        }
-        String contentType = multipartFile.getContentType();
-        if (!contentType.contains("")) {
-
-        }
-        String root_fileName = multipartFile.getOriginalFilename();
-
-        //处理图片
-       // User currentUser = userService.getCurrentUser();
-        //获取路径
-       // String return_path = ImageUtil.getFilePath(currentUser);
-        String filePath = location + ""*//*return_path*//*;
-
-        String file_name = null;
-        try {
-            file_name = ImageUtil.saveImg(multipartFile, filePath);
-
-            map.put("","");
-            if(StringUtils.isNotBlank(file_name)){
-
-            }
-
-
-        } catch (IOException e) {
-
-        }
-        return map;*/
 
 }

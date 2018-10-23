@@ -11,6 +11,7 @@ class RandomIntGenerator
      */
     private int max = Integer.MAX_VALUE;
 
+
     /**
      * 大于min 小于max
      * @param min
@@ -41,8 +42,9 @@ class RandomIntGenerator
     /**
      * 大于Integer.MIN_VALUE 小于max
      */
-    public static RandomIntGenerator smallerThan(int max)
-    {
+    public static RandomIntGenerator smallerThan(int max) {
         return new RandomIntGenerator(Integer.MIN_VALUE, max);
+
+
     }
 }

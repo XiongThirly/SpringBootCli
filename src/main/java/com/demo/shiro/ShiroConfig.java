@@ -49,7 +49,7 @@ public class ShiroConfig {
         factoryBean.setSecurityManager(securityManager);
         factoryBean.setUnauthorizedUrl("/401");
 
-        /*
+        /**
          * 自定义url规则
          * http://shiro.apache.org/web.html#urls-
          */
