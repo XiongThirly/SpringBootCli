@@ -1,14 +1,20 @@
-package com.demo.config;
+package com.mobileWall.config;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
+import org.springframework.data.redis.connection.RedisNode;
+import org.springframework.data.redis.connection.RedisSentinelConfiguration;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
+
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * @Descrption: 序列化
@@ -17,6 +23,32 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
  */
 @Configuration
 public class RedisConfig {
+
+    @Value("${spring.redis.sentinel.master}")
+    private String masterName;
+    @Value("${spring.redis.sentinel.nodes}")
+    private String sentinelNodes;
+
+
+
+
+    @Bean
+    public RedisSentinelConfiguration sentinelConfiguration() {
+        RedisSentinelConfiguration redisSentinelConfiguration = new RedisSentinelConfiguration();
+        // 配置redis的哨兵sentinel
+        Set<RedisNode> redisNodeSet = new HashSet<>();
+        String [] nodes = sentinelNodes.split(",");
+        for(String node : nodes){
+            int index = node.indexOf(":");
+            RedisNode senRedisNode = new RedisNode(node.substring(0,index), Integer.parseInt(node.substring(index + 1)));
+            redisNodeSet.add(senRedisNode);
+        }
+        redisSentinelConfiguration.setSentinels(redisNodeSet);
+        redisSentinelConfiguration.setMaster(masterName);
+        return redisSentinelConfiguration;
+    }
+
+
 
     /**
      * redisTemplate 序列化使用的jdkSerializeable, 存储二进制字节码, 所以自定义序列化类
@@ -43,4 +75,9 @@ public class RedisConfig {
         redisTemplate.afterPropertiesSet();
         return redisTemplate;
     }
+
+
+
+
+
 }
