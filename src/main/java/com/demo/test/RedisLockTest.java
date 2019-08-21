@@ -18,22 +18,31 @@ public class RedisLockTest {
     private RedisLock redisLock;
 
     @Test
-    public void test()throws Exception{
+    public void test(){
 
-        RedisLock redisLockN = redisLock.newInstance("", 10000);
-        if (redisLockN.lock()) {
-            //业务代码
-            redisLockN.unlock();
-            LOGGER.info(" 释放redis分布式锁");
-        } else {
-            LOGGER.error("获取redis分布式锁失败 请检查");
-            throw new Exception();
-        }
-    }
+
+
+
+                RedisLock redisLockN = redisLock.newInstance("lock", 10000);
+                if (redisLockN.lock()) {
+                    try {
+                        Thread.sleep(1000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    redisLockN.unlock();
+                    LOGGER.info(" 释放redis分布式锁");
+                } else {
+                    LOGGER.error("获取redis分布式锁失败 请检查");
+                }
+            }
+
 
     @Test
     public void binary(){
-        System.out.print(2 >> 2);
+
+
+
     }
 
 }

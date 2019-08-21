@@ -24,7 +24,6 @@ import java.util.Map;
  * @author: THIRLY
  * @date: 2018/10/19 16:40
  */
-@RestController
 public class UploadImageController {
 
     @Autowired

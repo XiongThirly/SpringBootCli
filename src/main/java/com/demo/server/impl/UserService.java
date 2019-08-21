@@ -34,9 +34,9 @@ public class UserService implements IUserService {
            if (userBean.getUsername() != null && !StringUtils.isBlank(userBean.getUsername())) {
                predicates.add(cb.equal(root.get("username").as(String.class),userBean.getUsername()));
            }
-           query.where(predicates.toArray(new Predicate[predicates.size()]));
+           query.where(predicates.toArray(new Predicate[0]));
            return null;
-        });
+        }).get();
 
 
         return u;

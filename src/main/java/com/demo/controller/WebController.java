@@ -2,12 +2,10 @@ package com.demo.controller;
 
 import com.demo.model.UserBean;
 import com.demo.server.impl.UserService;
-import com.demo.util.ExcelUtil;
 import com.demo.util.JWTUtil;
 import com.demo.util.ResponseData;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
-import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authz.UnauthorizedException;
 import org.apache.shiro.authz.annotation.Logical;
@@ -20,14 +18,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
-import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
-import java.net.URLEncoder;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.List;
+
 
 /**
  * @Descrption: shiro权限控制

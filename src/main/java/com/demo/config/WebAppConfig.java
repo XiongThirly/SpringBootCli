@@ -12,9 +12,7 @@ import javax.servlet.MultipartConfigElement;
  * @author: THIRLY
  * @date: 2018/10/19 16:38
  */
-@Configuration
-@ComponentScan(value = "com.github.tobato.fastdfs.service")
-@Import(FdfsClientConfig.class)
+
 @EnableMBeanExport(registration = RegistrationPolicy.IGNORE_EXISTING)
 public class WebAppConfig {
     @Bean

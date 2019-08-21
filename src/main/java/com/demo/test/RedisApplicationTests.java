@@ -23,7 +23,7 @@ public class RedisApplicationTests {
 
        UserBean u = new UserBean();
        u.setUsername("1");
-       RedisUtil.set("8",6);
+       RedisUtil.set("8",99999);
 
         System.out.println(RedisUtil.get("8"));
     }
